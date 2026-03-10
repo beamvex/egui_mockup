@@ -1,0 +1,9 @@
+[package]
+name = "egui_mockup"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+eframe = { version = "0.27", default-features = true }
+
+# Note: We keep dependencies minimal for a from-scratch mock UI.
