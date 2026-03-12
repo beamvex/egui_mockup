@@ -68,9 +68,18 @@ impl eframe::App for App {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         ctx.set_visuals(egui::Visuals::dark());
 
-        ui_servers::ui_servers(self, ctx);
-        ui_channels::ui_channels(self, ctx);
-        ui_chat::ui_chat(self, ctx);
+        //ui_servers::ui_servers(self, ctx);
+        //ui_channels::ui_channels(self, ctx);
+        //ui_chat::ui_chat(self, ctx);
+
+        egui::CentralPanel::default().show(ctx, |ui| {
+            ui.horizontal_centered(|ui| {
+                ui.vertical_centered(|ui| {
+                    ui.strong("big");
+                    ui.label("Hello, egui!");
+                });
+            });
+        });
     }
 }
 
