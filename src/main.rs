@@ -67,17 +67,60 @@ impl eframe::App for App {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         ctx.set_visuals(egui::Visuals::dark());
 
-        ui_servers::ui_servers(self, ctx);
-        ui_channels::ui_channels(self, ctx);
-        ui_chat::ui_chat(self, ctx);
+        //ui_servers::ui_servers(self, ctx);
+        //ui_channels::ui_channels(self, ctx);
+        //ui_chat::ui_chat(self, ctx);
 
-        egui::CentralPanel::default().show(ctx, |ui| {
-            ui.horizontal_centered(|ui| {
-                ui.vertical_centered(|ui| {
-                    ui.strong("big");
-                    ui.label("Hello, egui!");
+        egui::CentralPanel::default()
+            .show(ctx, |ui| {
+                let rect = ui.max_rect();
+                let center = rect.center();
+
+                let top = egui::Color32::from_rgb(10, 40, 22);
+                let bottom = egui::Color32::from_rgb(3, 18, 10);
+
+                let mut mesh = egui::epaint::Mesh::default();
+                mesh.vertices.push(egui::epaint::Vertex {
+                    pos: rect.left_top(),
+                    uv: egui::pos2(0.0, 0.0),
+                    color: top,
                 });
+                mesh.vertices.push(egui::epaint::Vertex {
+                    pos: rect.right_top(),
+                    uv: egui::pos2(0.0, 0.0),
+                    color: top,
+                });
+                mesh.vertices.push(egui::epaint::Vertex {
+                    pos: rect.right_bottom(),
+                    uv: egui::pos2(0.0, 0.0),
+                    color: bottom,
+                });
+                mesh.vertices.push(egui::epaint::Vertex {
+                    pos: rect.left_bottom(),
+                    uv: egui::pos2(0.0, 0.0),
+                    color: bottom,
+                });
+                mesh.indices.extend([0, 1, 2, 0, 2, 3]);
+                ui.painter().add(egui::Shape::mesh(mesh));
+
+                let font_big = egui::FontId::proportional(28.0);
+                let font_normal = egui::FontId::proportional(16.0);
+                let color = egui::Color32::WHITE;
+
+                ui.painter().text(
+                    center + egui::vec2(0.0, -12.0),
+                    egui::Align2::CENTER_CENTER,
+                    "big",
+                    font_big,
+                    color,
+                );
+                ui.painter().text(
+                    center + egui::vec2(0.0, 18.0),
+                    egui::Align2::CENTER_CENTER,
+                    "Hello, egui!",
+                    font_normal,
+                    color,
+                );
             });
-        });
     }
 }
