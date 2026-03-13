@@ -108,14 +108,14 @@ impl eframe::App for App {
                 let color = egui::Color32::WHITE;
 
                 ui.painter().text(
-                    center + egui::vec2(0.0, -12.0),
-                    egui::Align2::CENTER_CENTER,
+                    center + egui::vec2(0.0, -142.0),
+                    egui::Align2::RIGHT_CENTER,
                     "big",
                     font_big,
                     color,
                 );
                 ui.painter().text(
-                    center + egui::vec2(0.0, 18.0),
+                    center + egui::vec2(0.0, 180.0),
                     egui::Align2::CENTER_CENTER,
                     "Hello, egui!",
                     font_normal,
