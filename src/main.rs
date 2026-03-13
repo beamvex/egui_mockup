@@ -23,6 +23,7 @@ pub(crate) struct App {
     pub(crate) selected_channel: usize,
     pub(crate) composer: String,
     pub(crate) scroll_to_bottom: bool,
+    pub(crate) show_dialog: bool,
 }
 
 impl App {
@@ -34,6 +35,7 @@ impl App {
             selected_channel: 0,
             composer: String::new(),
             scroll_to_bottom: true,
+            show_dialog: false,
         }
     }
 
@@ -66,6 +68,19 @@ impl App {
 impl eframe::App for App {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         ctx.set_visuals(egui::Visuals::dark());
+
+        if self.show_dialog {
+            egui::Window::new("Dialog")
+                .collapsible(false)
+                .resizable(false)
+                .anchor(egui::Align2::CENTER_CENTER, egui::vec2(0.0, 0.0))
+                .show(ctx, |ui| {
+                    ui.label("Button clicked!");
+                    if ui.button("OK").clicked() {
+                        self.show_dialog = false;
+                    }
+                });
+        }
 
         //ui_servers::ui_servers(self, ctx);
         //ui_channels::ui_channels(self, ctx);
@@ -121,6 +136,16 @@ impl eframe::App for App {
                     font_normal,
                     color,
                 );
+
+
+                let mut widget = egui::Button::new("Click me");
+                widget = widget.fill(egui::Color32::from_rgb(0, 120, 212));
+
+                let button_rect =
+                    egui::Rect::from_center_size(center + egui::vec2(0.0, 240.0), egui::vec2(140.0, 32.0));
+                if ui.put(button_rect, widget).clicked() {
+                    self.show_dialog = true;
+                }
             });
     }
 }
