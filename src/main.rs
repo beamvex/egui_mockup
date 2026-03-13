@@ -121,7 +121,7 @@ impl eframe::App for App {
 
                     ui.horizontal(|ui| {
                         ui.allocate_ui_with_layout(egui::vec2(col_w, 0.0), col_layout, |ui| {
-                            ui.horizontal(|ui| {
+                            ui.with_layout(egui::Layout::left_to_right(egui::Align::Center), |ui| {
                                 ui.add_sized([label_w, 0.0], egui::Label::new("Display name"));
                                 ui.add(
                                     egui::TextEdit::singleline(&mut self.draft_profile.display_name)
@@ -130,7 +130,7 @@ impl eframe::App for App {
                             });
                         });
                         ui.allocate_ui_with_layout(egui::vec2(col_w, 0.0), col_layout, |ui| {
-                            ui.horizontal(|ui| {
+                            ui.with_layout(egui::Layout::left_to_right(egui::Align::Center), |ui| {
                                 ui.add_sized([label_w, 0.0], egui::Label::new("Email"));
                                 ui.add(
                                     egui::TextEdit::singleline(&mut self.draft_profile.email)
@@ -143,7 +143,7 @@ impl eframe::App for App {
                     ui.add_space(8.0);
                     ui.horizontal(|ui| {
                         ui.allocate_ui_with_layout(egui::vec2(col_w, 0.0), col_layout, |ui| {
-                            ui.horizontal(|ui| {
+                            ui.with_layout(egui::Layout::left_to_right(egui::Align::Center), |ui| {
                                 ui.add_sized([label_w, 0.0], egui::Label::new("Telephone"));
                                 ui.add(
                                     egui::TextEdit::singleline(&mut self.draft_profile.telephone)
@@ -152,7 +152,7 @@ impl eframe::App for App {
                             });
                         });
                         ui.allocate_ui_with_layout(egui::vec2(col_w, 0.0), col_layout, |ui| {
-                            ui.horizontal(|ui| {
+                            ui.with_layout(egui::Layout::left_to_right(egui::Align::Center), |ui| {
                                 ui.add_sized([label_w, 0.0], egui::Label::new("DOB"));
                                 ui.add(
                                     egui::TextEdit::singleline(&mut self.draft_profile.dob)
@@ -165,7 +165,7 @@ impl eframe::App for App {
                     ui.add_space(8.0);
                     ui.horizontal(|ui| {
                         ui.allocate_ui_with_layout(egui::vec2(col_w, 0.0), col_layout, |ui| {
-                            ui.horizontal(|ui| {
+                            ui.with_layout(egui::Layout::left_to_right(egui::Align::Center), |ui| {
                                 ui.add_sized([label_w, 0.0], egui::Label::new("Place of birth"));
                                 ui.add(
                                     egui::TextEdit::singleline(&mut self.draft_profile.place_of_birth)
@@ -174,7 +174,7 @@ impl eframe::App for App {
                             });
                         });
                         ui.allocate_ui_with_layout(egui::vec2(col_w, 0.0), col_layout, |ui| {
-                            ui.horizontal(|ui| {
+                            ui.with_layout(egui::Layout::left_to_right(egui::Align::Center), |ui| {
                                 ui.add_sized([label_w, 0.0], egui::Label::new("Fave word"));
                                 ui.add(
                                     egui::TextEdit::singleline(&mut self.draft_profile.favorite_word)
@@ -187,7 +187,7 @@ impl eframe::App for App {
                     ui.add_space(8.0);
                     ui.horizontal(|ui| {
                         ui.allocate_ui_with_layout(egui::vec2(col_w, 0.0), col_layout, |ui| {
-                            ui.horizontal(|ui| {
+                            ui.with_layout(egui::Layout::left_to_right(egui::Align::Center), |ui| {
                                 ui.add_sized([label_w, 0.0], egui::Label::new("Address line 1"));
                                 ui.add(
                                     egui::TextEdit::singleline(&mut self.draft_profile.address_line1)
@@ -196,7 +196,7 @@ impl eframe::App for App {
                             });
                         });
                         ui.allocate_ui_with_layout(egui::vec2(col_w, 0.0), col_layout, |ui| {
-                            ui.horizontal(|ui| {
+                            ui.with_layout(egui::Layout::left_to_right(egui::Align::Center), |ui| {
                                 ui.add_sized([label_w, 0.0], egui::Label::new("Address line 2"));
                                 ui.add(
                                     egui::TextEdit::singleline(&mut self.draft_profile.address_line2)
@@ -209,7 +209,7 @@ impl eframe::App for App {
                     ui.add_space(8.0);
                     ui.horizontal(|ui| {
                         ui.allocate_ui_with_layout(egui::vec2(col_w, 0.0), col_layout, |ui| {
-                            ui.horizontal(|ui| {
+                            ui.with_layout(egui::Layout::left_to_right(egui::Align::Center), |ui| {
                                 ui.add_sized([label_w, 0.0], egui::Label::new("City"));
                                 ui.add(
                                     egui::TextEdit::singleline(&mut self.draft_profile.city)
@@ -218,7 +218,7 @@ impl eframe::App for App {
                             });
                         });
                         ui.allocate_ui_with_layout(egui::vec2(col_w, 0.0), col_layout, |ui| {
-                            ui.horizontal(|ui| {
+                            ui.with_layout(egui::Layout::left_to_right(egui::Align::Center), |ui| {
                                 ui.add_sized([label_w, 0.0], egui::Label::new("State / Province"));
                                 ui.add(
                                     egui::TextEdit::singleline(&mut self.draft_profile.state_or_province)
@@ -231,7 +231,7 @@ impl eframe::App for App {
                     ui.add_space(8.0);
                     ui.horizontal(|ui| {
                         ui.allocate_ui_with_layout(egui::vec2(col_w, 0.0), col_layout, |ui| {
-                            ui.horizontal(|ui| {
+                            ui.with_layout(egui::Layout::left_to_right(egui::Align::Center), |ui| {
                                 ui.add_sized([label_w, 0.0], egui::Label::new("Postal code"));
                                 ui.add(
                                     egui::TextEdit::singleline(&mut self.draft_profile.postal_code)
@@ -240,7 +240,7 @@ impl eframe::App for App {
                             });
                         });
                         ui.allocate_ui_with_layout(egui::vec2(col_w, 0.0), col_layout, |ui| {
-                            ui.horizontal(|ui| {
+                            ui.with_layout(egui::Layout::left_to_right(egui::Align::Center), |ui| {
                                 ui.add_sized([label_w, 0.0], egui::Label::new("Country"));
                                 ui.add(
                                     egui::TextEdit::singleline(&mut self.draft_profile.country)
